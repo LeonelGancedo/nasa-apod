@@ -1,5 +1,5 @@
 // Declaraciones iniciales
-const URL = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`
+const URL = 'https://api.nasa.gov/planetary/apod?api_key=sDzcmPCllOQJdhFg1x68MUeiIqbI1XI6hJ28AXXP'
 const buttonId = document.getElementById('button')
 const buttonId2 = document.getElementById('button2')
 let datePre = new Date().getTime()

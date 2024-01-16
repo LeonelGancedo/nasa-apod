@@ -1,0 +1,178 @@
+/* Colores
+https://www.colorhunt.co/palette/3924675d3587a367b1ffd1e3
+ */
+
+ /* Inicio */
+ :root {
+    --dark-purple: #392467;
+    --purple: #5D3587;
+    --light-purple: #A367B1;
+    --pink: #FFD1E3;
+    --normal: 2rem;
+    --normal-b: 3rem;
+    --big: 4rem;
+}
+html {
+    font-size: 62.5%;
+    /* background-color: var(--light-purple); */
+}
+
+* {box-sizing: border-box;}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--dark-purple);
+    color: var(--pink);
+    font-family: 'Genos', sans-serif;
+    font-size: var(--normal);
+}
+
+/* BODY */
+.bodycontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+}
+.bodycontainer h1 {
+    font-size: var(--big);
+    margin: 1rem;
+}
+
+/* NAV */
+.nav {
+    background-color: var(--light-purple);
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+}
+.nav img {
+    width: 75px;
+    height: 70px;
+    margin: 0 10px;
+}
+.nav p {
+    font-size: var(--normal-b);
+    font-weight: 400;
+}
+
+/* TITULO */
+.titleArea {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.titleArea h1 {
+    padding-left: 20px;
+    font: 6rem;
+    margin: 10px 0 0 0;
+}
+.titleArea p {
+    font-size: 3rem;
+    width: 100%;
+    text-align: justify;
+    padding: 0 20px;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+/* IMG DEL DIA */
+.imageDay {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+.imageDay h2 {
+    font-size: var(--normal-b);
+    margin: 1rem;
+}
+.imgexp {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+.imgcontainer {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    object-fit: contain;
+}
+.imgcontainer img{
+    width: 70%;
+    max-width: 750px;
+}
+.imgexp p {
+    width: 500px;
+    padding: 20px;
+    font-size: 2.5rem;
+}
+.imageDay button {
+    width: 100px;
+    height: 35px;
+    background-color: var(--purple);
+    color: var(--pink);
+    font-size: 1.5rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+}
+.imageDay button:hover {
+    border: 1px solid var(--light-purple);
+}
+
+/* ULTIMOS DIAS */
+.lastDays {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.lastDaysImg {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.lastDaysImg figure {
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+}
+.lastDaysImg figure img:hover {
+    border: 1px solid var(--light-purple);
+}
+.lastDaysImg figure img {
+    border: 1px solid transparent;
+    height: 100%;
+    width: 100%;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--pink);
+    height: 2vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+footer p {
+    color: var(--dark-purple);
+    font-size: var(--normal);
+}
+
+@media (max-width: 750px) {
+    .imgexp p {
+        width: 300px;
+    }
+    
+}

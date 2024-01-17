@@ -104,6 +104,7 @@ buttonId.addEventListener('click', e => {
     datePre -= diaResta
     const dateFormateado = dateFormat(datePre)
     initialPicture(`${URL}&date=${dateFormateado}&thumbs=true`)
+    window.scroll(0,0)
 })
 
 
@@ -115,6 +116,7 @@ buttonId2.addEventListener('click', e => {
         datePre += diaResta
         const dateFormateado = dateFormat(datePre)
         initialPicture(`${URL}&date=${dateFormateado}&thumbs=true`)
+        window.scroll(0,0)
     }
 
 })
@@ -128,6 +130,7 @@ window.addEventListener('keydown', e => {
             datePre += diaResta
             const dateFormateado = dateFormat(datePre)
             initialPicture(`${URL}&date=${dateFormateado}&thumbs=true`)
+            window.scroll(0,0)
         }
     }
 
@@ -138,5 +141,6 @@ window.addEventListener('keydown', e => {
             datePre -= diaResta
             const dateFormateado = dateFormat(datePre)
             initialPicture(`${URL}&date=${dateFormateado}&thumbs=true`)
+            window.scroll(0,0)
     }
 })

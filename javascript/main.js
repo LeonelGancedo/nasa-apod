@@ -5,6 +5,8 @@ const buttonId2 = document.getElementById('button2')
 let datePre = new Date().getTime()
 let dateCheck = new Date().getTime()
 const diaResta = 24 * 60 * 60 * 1000
+const diasResta = 10 * 24 * 60 * 60 * 1000
+
 
 // Funciones
 const initialPicture = async (ulrApi) => {
@@ -33,6 +35,8 @@ const dateFormat = (newDate) => {
     const date = `${year}-${month}-${day}`
     return date
 }
+
+
 const lastPictures = async (ulrApi) => {
     try {
         const response = await fetch(ulrApi)
@@ -96,9 +100,11 @@ const lastPictures = async (ulrApi) => {
 
 // On load imgs
 initialPicture(`${URL}&thumbs=true`)
-lastPictures(`${URL}&start_date=2024-01-03&end_date=2024-01-12&thumbs=true`)
+let dateStart = dateFormat(datePre - diasResta)
+let dateEnd = dateFormat(datePre - diaResta)
+lastPictures(`${URL}&start_date=${dateStart}&end_date=${dateEnd}&thumbs=true`)
 
-// Botones
+// Botones y events 
 buttonId.addEventListener('click', e => {
     e.preventDefault()
     datePre -= diaResta
@@ -106,8 +112,6 @@ buttonId.addEventListener('click', e => {
     initialPicture(`${URL}&date=${dateFormateado}&thumbs=true`)
     window.scroll(0,0)
 })
-
-
 buttonId2.addEventListener('click', e => {
     e.preventDefault()
     if (datePre == dateCheck) {

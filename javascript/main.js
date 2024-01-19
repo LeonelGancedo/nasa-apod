@@ -35,63 +35,29 @@ const dateFormat = (newDate) => {
     const date = `${year}-${month}-${day}`
     return date
 }
-
-
 const lastPictures = async (ulrApi) => {
     try {
         const response = await fetch(ulrApi)
         const dataUn = await response.json()
         const data = dataUn.sort((a,b) => new Date(b.date) - new Date(a.date))
+        const lastdays = document.getElementById('lastDaysImgs')
+        data.forEach(element => {
+            const figu = document.createElement('figure')
+            const figc = document.createElement('figcaption')
+            const img = document.createElement('img')
+            img.src = element.thumbnail_url ? element.thumbnail_url : element.url
+            img.addEventListener('click', () => {
+                datePre = new Date(element.date).getTime() + 3 * 60 * 60 * 1000
+                console.log(dateFormat(datePre));
+                initialPicture(`${URL}&date=${element.date}&thumbs=true`)
+                window.scroll(0,0)
+            })
+            figc.innerHTML = element.date
+            figu.append(figc, img)
+            lastdays.appendChild(figu)
+        })
 
-        const img0 = document.getElementById('img0')
-        const img1 = document.getElementById('img1')
-        const img2 = document.getElementById('img2')
-        const img3 = document.getElementById('img3')
-        const img4 = document.getElementById('img4')
-        const img5 = document.getElementById('img5')
-        const img6 = document.getElementById('img6')
-        const img7 = document.getElementById('img7')
-        const img8 = document.getElementById('img8')
-        const img9 = document.getElementById('img9')
-
-        const fig0 = document.getElementById('fig0')
-        const fig1 = document.getElementById('fig1')
-        const fig2 = document.getElementById('fig2')
-        const fig3 = document.getElementById('fig3')
-        const fig4 = document.getElementById('fig4')
-        const fig5 = document.getElementById('fig5')
-        const fig6 = document.getElementById('fig6')
-        const fig7 = document.getElementById('fig7')
-        const fig8 = document.getElementById('fig8')
-        const fig9 = document.getElementById('fig9')
-
-
-
-        img0.src = data[0].thumbnail_url ? data[0].thumbnail_url : data[0].url
-        img1.src = data[1].thumbnail_url ? data[1].thumbnail_url : data[1].url
-        img2.src = data[2].thumbnail_url ? data[2].thumbnail_url : data[2].url
-        img3.src = data[3].thumbnail_url ? data[3].thumbnail_url : data[3].url
-        img4.src = data[4].thumbnail_url ? data[4].thumbnail_url : data[4].url
-        img5.src = data[5].thumbnail_url ? data[5].thumbnail_url : data[5].url
-        img6.src = data[6].thumbnail_url ? data[6].thumbnail_url : data[6].url
-        img7.src = data[7].thumbnail_url ? data[7].thumbnail_url : data[7].url
-        img8.src = data[8].thumbnail_url ? data[8].thumbnail_url : data[8].url
-        img9.src = data[9].thumbnail_url ? data[9].thumbnail_url : data[9].url
-
-        fig0.innerHTML = data[0].date
-        fig1.innerHTML = data[1].date
-        fig2.innerHTML = data[2].date
-        fig3.innerHTML = data[3].date
-        fig4.innerHTML = data[4].date
-        fig5.innerHTML = data[5].date
-        fig6.innerHTML = data[6].date
-        fig7.innerHTML = data[7].date
-        fig8.innerHTML = data[8].date
-        fig9.innerHTML = data[9].date
-
-        
-
-        console.log(data[0].url);
+        console.log(data);
     }
     catch (error) {
         console.error(error);
